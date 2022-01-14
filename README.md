@@ -1,5 +1,5 @@
 # zone2json
-This utility converts the records of a DNS zone file to JSON/XML/YAML objects.
+This utility converts the records of a DNS (BIND) zone file to JSON/XML/YAML objects.
 
 # Usage
 
