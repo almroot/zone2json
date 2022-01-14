@@ -9,7 +9,7 @@ import (
 type Arguments struct {
 	Input         string `short:"i" long:"input" description:"The file to read from, use - for STDIN"`
 	Output        string `short:"o" long:"output" description:"The file to write to, use - for STDOUT"`
-	Format        Format `short:"f" long:"format" description:"Output format: bind/json"`
+	Format        Format `short:"f" long:"format" description:"Output format: json/yaml/xml/bind"`
 	DefaultOrigin string `long:"origin" description:"The default origin for relative domains"`
 	DefaultTTL    uint32 `long:"ttl" description:"The default TTL to be used"`
 	AllowIncludes bool   `long:"allow-includes" description:"Enables support for bind $INCLUDE directives"`
@@ -19,7 +19,7 @@ func NewArguments() *Arguments {
 	return &Arguments{
 		Input:         "-",
 		Output:        "-",
-		Format:        FormatBind,
+		Format:        FormatJson,
 		DefaultOrigin: ".",
 		DefaultTTL:    86400,
 		AllowIncludes: false,
