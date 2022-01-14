@@ -16,15 +16,33 @@ func main() {
 		os.Exit(code)
 	}
 
-	// Figure out how to treat I/O.
+	// Figure out how to treat the input stream.
 	var filename = ""
 	var input io.Reader
 	if args.Input == "" || args.Input == "-" {
 		input = os.Stdin
+	} else {
+		file, err := os.Open(args.Input)
+		if err != nil {
+			_, _ = fmt.Fprintln(os.Stderr, err)
+			os.Exit(1)
+		}
+		defer func() { _ = file.Close() }()
+		input = file
 	}
+
+	// Figure out how to tread the output stream.
 	var output io.Writer
 	if args.Output == "" || args.Output == "-" {
 		output = os.Stdout
+	} else {
+		file, err := os.Open(args.Output)
+		if err != nil {
+			_, _ = fmt.Fprintln(os.Stderr, err)
+			os.Exit(1)
+		}
+		defer func() { _ = file.Close() }()
+		output = file
 	}
 
 	// Setup the zone parser...
