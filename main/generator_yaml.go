@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/go-yaml/yaml"
+	"gopkg.in/yaml.v3"
 
 	"github.com/miekg/dns"
 )

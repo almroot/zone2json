@@ -55,3 +55,9 @@ Application Options:
 Help Options:
   -h, --help            Show this help message
 ```
+
+# Building
+
+This will produce a binary `zone2json` in the current working directory:
+
+`almroot@x:~(main)$ go build -o zone2json ./main`
